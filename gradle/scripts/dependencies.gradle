@@ -25,6 +25,14 @@ repositories {
             includeGroup 'maven.modrinth'
         }
     }
+    maven {
+        name 'GregTech'
+        url 'https://maven.gtceu.com'
+    }
+    maven {
+        name 'Blamejared'
+        url 'https://maven.blamejared.com'
+    }
     mavenLocal() // Must be last for caching to work
 }
 
@@ -66,5 +74,9 @@ dependencies {
     //     transitive = false
     // }
 
-    implementation(rfg.deobf("curse.maven:extra-utilities-225561:2678374")) // Extra Utilities 2 - 1.9.9
+    // Extra Utilities 2 - 1.9.9
+    implementation(rfg.deobf("curse.maven:extra-utilities-225561:2678374"))
+
+    // GregTechCEU
+    implementation("gregtech:gregtech:2.8.10-beta:dev")
 }
