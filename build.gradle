@@ -14,12 +14,14 @@ plugins {
     id 'com.matthewprenger.cursegradle' version '1.4.0' apply false
     id 'com.modrinth.minotaur' version '2.+' apply false
     id 'org.jetbrains.changelog' version '2.2.1'
+
+    id 'com.palantir.git-version' version '3.1.0'
 }
 
 apply from: 'gradle/scripts/helpers.gradle'
 
 // Early Assertions
-assertProperty 'mod_version'
+assertProperty 'mod_version' // replaced by git versioning
 assertProperty 'root_package'
 assertProperty 'mod_id'
 assertProperty 'mod_name'
@@ -41,7 +43,16 @@ setDefaultProperty 'extra_jvm_args', false, ''
 setDefaultProperty 'extra_tweak_classes', false, ''
 setDefaultProperty 'change_minecraft_sources', false, false
 
-version = propertyString('mod_version')
+String identifiedVersion
+String versionOverride = System.getenv("VERSION") ?: null
+try {
+    identifiedVersion = versionOverride == null ? gitVersion() : versionOverride
+} catch (Exception ignored) {
+    versionOverride = 'NO-GIT-TAG-SET'
+    identifiedVersion = versionOverride
+}
+
+version = identifiedVersion
 group = propertyString('root_package')
 
 base {
@@ -165,7 +176,7 @@ processResources {
 
     inputs.property 'mod_id', propertyString('mod_id')
     inputs.property 'mod_name', propertyString('mod_name')
-    inputs.property 'mod_version', propertyString('mod_version')
+    inputs.property 'mod_version', identifiedVersion
     inputs.property 'mod_description', propertyString('mod_description')
     inputs.property 'mod_authors', "${propertyStringList('mod_authors', ',').join(', ')}"
     inputs.property 'mod_credits', propertyString('mod_credits')
@@ -183,7 +194,7 @@ processResources {
         fcd.expand(
                 'mod_id': propertyString('mod_id'),
                 'mod_name': propertyString('mod_name'),
-                'mod_version': propertyString('mod_version'),
+                'mod_version': identifiedVersion,
                 'mod_description': propertyString('mod_description'),
                 'mod_authors': "${propertyStringList('mod_authors', ',').join(', ')}",
                 'mod_credits': propertyString('mod_credits'),
@@ -276,7 +287,7 @@ String parserChangelog() {
         throw new GradleException('publish_with_changelog is true, but CHANGELOG.md does not exist in the workspace!')
     }
     String parsedChangelog = changelog.renderItem(
-            changelog.get(propertyString('mod_version')).withHeader(false).withEmptySections(false),
+            changelog.get(identifiedVersion).withHeader(false).withEmptySections(false),
             Changelog.OutputType.MARKDOWN)
     if (parsedChangelog.isEmpty()) {
         throw new GradleException('publish_with_changelog is true, but the changelog for the latest version is empty!')
