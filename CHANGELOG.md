@@ -1,6 +1,10 @@
 # Changelog
 
-## [1.0.0] - 2023-09-15
+[KeepAChangelog Convention](https://keepachangelog.com/en/1.1.0/)
+
+## [1.0.0] - 2025-2-17
 
 ### Added
-- This is a default template changelog that follows the [KeepAChangelog Convention](https://keepachangelog.com/en/1.1.0/)
+
+- Initialize Nomi Horizons
+- GregTech Fluid Tank support for Extra Utilities 2 Drums
