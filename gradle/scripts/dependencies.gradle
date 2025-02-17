@@ -74,9 +74,12 @@ dependencies {
     //     transitive = false
     // }
 
+    // GregTechCEU
+    implementation("gregtech:gregtech:2.8.10-beta:dev")
+
     // Extra Utilities 2 - 1.9.9
     implementation(rfg.deobf("curse.maven:extra-utilities-225561:2678374"))
 
-    // GregTechCEU
-    implementation("gregtech:gregtech:2.8.10-beta:dev")
+    // Actually Additions - r152
+    implementation(rfg.deobf("curse.maven:actually-additions-228404:3117927"))
 }

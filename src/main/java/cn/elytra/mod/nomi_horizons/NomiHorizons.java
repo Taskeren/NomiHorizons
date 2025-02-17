@@ -10,7 +10,11 @@ import org.apache.logging.log4j.Logger;
 public class NomiHorizons {
 
     public static final Logger LOG = LogManager.getLogger(Tags.MOD_NAME);
-    public static final String DEPS = "required-after:gregtech;" + "required-after:extrautils2;";
+
+    @SuppressWarnings("SpellCheckingInspection")
+    public static final String DEPS = "required-after:gregtech;"
+            + "required-after:extrautils2;"
+            + "required-after:actuallyadditions;";
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {

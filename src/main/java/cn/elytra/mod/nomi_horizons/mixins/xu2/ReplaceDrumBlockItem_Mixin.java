@@ -1,4 +1,4 @@
-package cn.elytra.mod.nomi_horizons.mixins;
+package cn.elytra.mod.nomi_horizons.mixins.xu2;
 
 import cn.elytra.mod.nomi_horizons.NomiHorizons;
 import cn.elytra.mod.nomi_horizons.xmod.xu2.DrumItemBlock;
@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = XU2Entries.class, remap = false)
-public class XU2Entries_Init_Mixin {
+public class ReplaceDrumBlockItem_Mixin {
 
     @Shadow
     public static BlockClassEntry<BlockDrum> drum;

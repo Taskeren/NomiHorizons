@@ -1,11 +1,13 @@
 {
-	"package": "cn.elytra.mod.nomi_horizons.mixins",
-	"required": true,
-	"refmap": "${mixin_refmap}",
-	"target": "@env(DEFAULT)",
-	"minVersion": "0.8.5",
-	"compatibilityLevel": "JAVA_8",
-	"mixins": [
-		"XU2Entries_Init_Mixin"
-	]
+  "package": "cn.elytra.mod.nomi_horizons.mixins",
+  "required": true,
+  "refmap": "${mixin_refmap}",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8.5",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "xu2.ShrinkDrumBoundingBox_Mixin",
+    "xu2.ReplaceDrumBlockItem_Mixin",
+    "aa.ShrinkCrateBoundingBox_Mixin"
+  ]
 }
