@@ -6,8 +6,9 @@
   "minVersion": "0.8.5",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "xu2.ShrinkDrumBoundingBox_Mixin",
+    "aa.ShrinkCrateBoundingBox_Mixin",
+    "xu2.FixDrumFluidLocalization_Mixin",
     "xu2.ReplaceDrumBlockItem_Mixin",
-    "aa.ShrinkCrateBoundingBox_Mixin"
+    "xu2.ShrinkDrumBoundingBox_Mixin"
   ]
 }
