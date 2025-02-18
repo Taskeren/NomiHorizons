@@ -82,4 +82,8 @@ dependencies {
 
     // Actually Additions - r152
     implementation(rfg.deobf("curse.maven:actually-additions-228404:3117927"))
+
+    // EnderCore - 0.5.78
+    // compile only - just for the API
+    compileOnly(rfg.deobf("curse.maven:endercore-231868:4671384"))
 }
