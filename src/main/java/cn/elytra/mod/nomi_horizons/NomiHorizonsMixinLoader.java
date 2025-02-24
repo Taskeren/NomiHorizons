@@ -25,6 +25,7 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
         public String comment = "Hi! This is Nomi Horizons mixin configuration, which controls which hard-injecting features you are interested in. Set to false to disable certain mixins.";
 
         public boolean setCellCapacityTo144 = true;
+        public boolean useNonPhantomFluidTankWidgets = true;
     }
 
     private static Config config;
@@ -59,6 +60,10 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
 
         if(config.setCellCapacityTo144) {
             mixinConfigs.add("mixins.nomi_horizons.144cell.json");
+        }
+
+        if(config.useNonPhantomFluidTankWidgets) {
+            mixinConfigs.add("mixins.nomi_horizons.non_phantom.json");
         }
 
         return mixinConfigs;

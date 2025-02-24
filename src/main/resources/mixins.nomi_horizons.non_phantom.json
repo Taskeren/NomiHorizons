@@ -1,0 +1,15 @@
+{
+  "package": "cn.elytra.mod.nomi_horizons.mixins",
+  "required": true,
+  "refmap": "${mixin_refmap}",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8.5",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "gt.ReplaceTankWidget_Mixin",
+    "gt.QuantumTank_Accessor"
+  ],
+  "client": [
+    "gt.ReplaceTankWidget_Mixin_Client"
+  ]
+}

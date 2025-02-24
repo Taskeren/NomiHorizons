@@ -34,3 +34,10 @@
 - Added Mixin Configuration to allow users to choose which features are enabled.
   Only features that may cause balancing issues or at experimental stage will be added to this config,
   and all of them are enabled by default.
+
+## [1.4.0] - 2025-2-24
+
+### Added
+
+- Added support for Interactive Fluid Slots in Super/Quantum Tanks.
+  Now, you can directly fill/drain fluids by clicking the fluid slot while holding fluid containers.
