@@ -1,7 +1,10 @@
 package cn.elytra.mod.nomi_horizons.xmod.gt;
 
+import cn.elytra.mod.nomi_horizons.mixins.gt.FluidHatch_Accessor;
 import cn.elytra.mod.nomi_horizons.mixins.gt.QuantumTank_Accessor;
+import gregtech.api.gui.Widget;
 import gregtech.api.gui.widgets.TankWidget;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityFluidHatch;
 import gregtech.common.metatileentities.storage.MetaTileEntityQuantumTank;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
@@ -20,23 +23,29 @@ import java.util.function.Supplier;
  */
 public class QuantumTankWidget extends TankWidget {
 
-    protected final MetaTileEntityQuantumTank quantumTank;
-
     /**
      * @throws IllegalArgumentException if the given fluidTank doesn't implement {@link IFluidHandler}.
      */
-    protected QuantumTankWidget(MetaTileEntityQuantumTank quantumTank, IFluidTank fluidTank, int x, int y, int width, int height) {
+    protected QuantumTankWidget(IFluidTank fluidTank, int x, int y, int width, int height) {
         super(fluidTank, x, y, width, height);
-
-        this.quantumTank = quantumTank;
 
         setAlwaysShowFull(true);
         setDrawHoveringText(false);
         setContainerClicking(true, true);
     }
 
-    public QuantumTankWidget(MetaTileEntityQuantumTank quantumTank, TankWidget widget) {
-        this(quantumTank, new QuantumTankHandler(widget.fluidTank, ((QuantumTank_Accessor) quantumTank)::getLockedFluid), widget.getSelfPosition().x, widget.getSelfPosition().y, widget.getSize().width, widget.getSize().height);
+    protected QuantumTankWidget(IFluidTank fluidTank, Widget inherit) {
+        this(fluidTank, inherit.getSelfPosition().x, inherit.getSelfPosition().y, inherit.getSize().width, inherit.getSize().height);
+    }
+
+    public static QuantumTankWidget create(MetaTileEntityQuantumTank quantumTank, TankWidget widget) {
+        var tank = (QuantumTank_Accessor) quantumTank;
+        return new QuantumTankWidget(new QuantumTankHandler(widget.fluidTank, tank::getLockedFluid), widget);
+    }
+
+    public static QuantumTankWidget create(MetaTileEntityFluidHatch fluidHatch, TankWidget widget) {
+        var hatch = (FluidHatch_Accessor) fluidHatch;
+        return new QuantumTankWidget(new QuantumTankHandler(widget.fluidTank, hatch.isExportHatch() ? hatch::getLockedFluid : null), widget);
     }
 
     private static class QuantumTankHandler implements IFluidTank, IFluidHandler {
@@ -49,9 +58,23 @@ public class QuantumTankWidget extends TankWidget {
         /**
          * The getter to the locked fluid; if it returns {@code null}, it means not locked.
          */
+        @Nullable
         protected final Supplier<@Nullable FluidStack> lockedFluid;
 
-        public QuantumTankHandler(IFluidTank delegate, Supplier<@Nullable FluidStack> lockedFluid) {
+        @Nullable
+        protected FluidStack getLockedFluid() {
+            if(lockedFluid != null) {
+                return lockedFluid.get();
+            } else {
+                return null;
+            }
+        }
+
+        public QuantumTankHandler(IFluidTank delegate) {
+            this(delegate, null);
+        }
+
+        public QuantumTankHandler(IFluidTank delegate, @Nullable Supplier<@Nullable FluidStack> lockedFluid) {
             this.delegate = delegate;
             this.lockedFluid = lockedFluid;
             if(!(delegate instanceof IFluidHandler)) {
@@ -65,7 +88,7 @@ public class QuantumTankWidget extends TankWidget {
             var fluid = delegate.getFluid();
             if(fluid != null) return fluid;
 
-            var locked = lockedFluid.get();
+            var locked = getLockedFluid();
             if(locked != null) return new FluidStack(locked, 0);
 
             return null;
@@ -88,7 +111,7 @@ public class QuantumTankWidget extends TankWidget {
 
         @Override
         public int fill(FluidStack resource, boolean doFill) {
-            var locked = lockedFluid.get();
+            var locked = getLockedFluid();
             if(locked != null && !locked.isFluidEqual(resource)) return 0;
 
             return delegate.fill(resource, doFill);

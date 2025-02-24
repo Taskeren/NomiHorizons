@@ -6,8 +6,11 @@
   "minVersion": "0.8.5",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "gt.ReplaceTankWidget_Mixin",
-    "gt.QuantumTank_Accessor"
+    "gt.ReplaceTankWidget_Tank_Mixin",
+    "gt.QuantumTank_Accessor",
+    "gt.ReplaceTankWidget_Hatch_Mixin",
+    "gt.FluidHatch_Accessor",
+    "gt.MultiblockNotifiablePart_Accessor"
   ],
   "client": [
     "gt.ReplaceTankWidget_Mixin_Client"

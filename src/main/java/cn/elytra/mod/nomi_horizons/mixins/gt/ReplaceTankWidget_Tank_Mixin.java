@@ -13,12 +13,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = MetaTileEntityQuantumTank.class, remap = false)
-public class ReplaceTankWidget_Mixin {
+public class ReplaceTankWidget_Tank_Mixin {
 
     @Inject(method = "createUI", at = @At(value = "INVOKE", target = "Lgregtech/api/gui/ModularUI;defaultBuilder()Lgregtech/api/gui/ModularUI$Builder;"))
     private void replace(EntityPlayer entityPlayer, CallbackInfoReturnable<ModularUI> cir, @Local LocalRef<TankWidget> widgetLocalRef) {
         var tank = widgetLocalRef.get();
-        var newTank = new QuantumTankWidget((MetaTileEntityQuantumTank) (Object) this, tank);
+        var newTank = QuantumTankWidget.create((MetaTileEntityQuantumTank) (Object) this, tank);
         widgetLocalRef.set(newTank);
     }
 }

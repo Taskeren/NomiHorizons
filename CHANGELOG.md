@@ -39,6 +39,13 @@
 
 ### Added
 
-- Added support for Interactive Fluid Slots in Super/Quantum Tanks.
+- Added support for Interactive Fluid Slots in Super/Quantum Tanks GUI.
   Now, you can directly fill/drain fluids by clicking the fluid slot while holding fluid containers.
   Mixin Config: `useNonPhantomFluidTankWidgets`.
+
+## [1.4.1] - 2025-2-24
+
+### Added
+
+- Added support for Interactive Fluid Slots in Input/Output Hatches GUI.
+  For details, see above.
