@@ -1,3 +1,7 @@
 nomi_horizons.nomi_horizons=Nomi Horizons
 
 nomi_horizons.text.presented_by=§bPresented by %s
+
+command.tpx.usage=/tpx {<teleport to player> | <player to teleport> <teleport to player>}
+command.tpx.success=Succeed to teleport to %s
+command.tpx.success.other=Succeed to teleport %s to %s

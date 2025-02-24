@@ -33,6 +33,10 @@ repositories {
         name 'Blamejared'
         url 'https://maven.blamejared.com'
     }
+    maven {
+        name 'CoFH'
+        url 'https://maven.covers1624.net'
+    }
     mavenLocal() // Must be last for caching to work
 }
 
@@ -86,4 +90,10 @@ dependencies {
     // EnderCore - 0.5.78
     // compile only - just for the API
     compileOnly(rfg.deobf("curse.maven:endercore-231868:4671384"))
+
+    // CoFHCore - 1.12.2-4.6.6.1
+    implementation(rfg.deobf("curse.maven:cofh-core-69162:2920433"))
+
+    // Redstone Flux
+    implementation("cofh:RedstoneFlux:1.12-2.1.0.7:deobf")
 }

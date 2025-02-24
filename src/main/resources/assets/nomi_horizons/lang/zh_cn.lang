@@ -1,3 +1,7 @@
 nomi_horizons.nomi_horizons=Nomi Horizons
 
 nomi_horizons.text.presented_by=§b由 %s §b呈现
+
+command.tpx.usage=/tpx {<传送到玩家处> | <被传送的玩家> <传送到玩家处>}
+command.tpx.success=成功传送到 %s 处
+command.tpx.success.other=成功将 %s 传送到 %s 处
