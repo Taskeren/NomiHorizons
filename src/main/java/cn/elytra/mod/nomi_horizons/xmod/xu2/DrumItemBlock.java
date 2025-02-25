@@ -58,24 +58,6 @@ public class DrumItemBlock extends XUItemBlock {
     }
 
     @Override
-    public boolean hasContainerItem(ItemStack stack) {
-        return stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null) != null;
-    }
-
-    @Override
-    public @NotNull ItemStack getContainerItem(@NotNull ItemStack stack) {
-        var handler = stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY, null);
-        if(handler == null) return ItemStack.EMPTY;
-
-        var drained = handler.drain(1000, true);
-        if(drained == null || drained.amount != 1000) {
-            return ItemStack.EMPTY;
-        } else {
-            return handler.getContainer().copy();
-        }
-    }
-
-    @Override
     public void addInformation(@NotNull ItemStack stack, @NotNull EntityPlayer playerIn, @NotNull List<String> tooltip, boolean advanced) {
         // logic copied from MetaTileEntityQuantumTank#addInformation
         int capacity = getCapacity(stack);

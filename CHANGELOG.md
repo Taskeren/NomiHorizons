@@ -49,3 +49,9 @@
 
 - Added support for Interactive Fluid Slots in Input/Output Hatches GUI.
   For details, see above.
+
+## [1.4.2] - 2025-2-25
+
+### Fixed
+
+- Fixed a bug causing Duplicating Extra Utilities 2 Drums.
