@@ -86,4 +86,10 @@ dependencies {
     // EnderCore - 0.5.78
     // compile only - just for the API
     compileOnly(rfg.deobf("curse.maven:endercore-231868:4671384"))
+
+    // Elevator - 1.3.14
+    implementation(rfg.deobf("curse.maven:elevator-250832:2845365"))
+
+    // EnderIO - 5.3.72
+    compileOnly(rfg.deobf("curse.maven:enderio-64578:4674244"))
 }

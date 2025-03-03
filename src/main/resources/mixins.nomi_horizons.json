@@ -9,6 +9,7 @@
     "aa.ShrinkCrateBoundingBox_Mixin",
     "xu2.FixDrumFluidLocalization_Mixin",
     "xu2.ReplaceDrumBlockItem_Mixin",
-    "xu2.ShrinkDrumBoundingBox_Mixin"
+    "xu2.ShrinkDrumBoundingBox_Mixin",
+    "gt.ElevatorInCleanroom_Mixin"
   ]
 }

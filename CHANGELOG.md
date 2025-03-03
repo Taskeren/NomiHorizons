@@ -55,3 +55,10 @@
 ### Fixed
 
 - Fixed a bug causing Duplicating Extra Utilities 2 Drums.
+
+## [1.5.0] - 2025-3-3
+
+### Added
+
+- Added Elevator-kind blocks in GregTech Cleanroom structures.
+  Currently supported elevators are Elevators from Elevator Mod and Travel Anchor from Ender IO.
