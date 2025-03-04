@@ -1,6 +1,9 @@
 package cn.elytra.mod.nomi_horizons;
 
 import crazypants.enderio.machines.init.MachineObject;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -8,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import xyz.vsngamer.elevator.blocks.BlockElevator;
+import xyz.vsngamer.elevator.init.Registry;
 
 @Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION, dependencies = NomiHorizons.DEPS)
 public class NomiHorizons {
@@ -33,8 +36,16 @@ public class NomiHorizons {
     }
 
     private void loadCrossModCompat() {
-        loadModCompat("elevatorid", () -> API.addElevator(b -> b.getBlock() instanceof BlockElevator));
-        loadModCompat("enderio", () -> API.addElevator(b -> b.getBlock() == MachineObject.block_travel_anchor.getBlock()));
+        loadModCompat("elevatorid", () -> {
+            var blockStates = Registry.ELEVATOR_ITEMBLOCKS.values().stream()
+                    .map(ItemBlock::getBlock)
+                    .map(Block::getDefaultState)
+                    .toArray(IBlockState[]::new);
+            API.addElevator(blockStates);
+        });
+        loadModCompat("enderio", () -> {
+            API.addElevator(MachineObject.block_travel_anchor.getBlockNN().getDefaultState());
+        });
     }
 
     private static void loadModCompat(String modId, Runnable r) {

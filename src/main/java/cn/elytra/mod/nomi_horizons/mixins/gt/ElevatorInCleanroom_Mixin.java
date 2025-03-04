@@ -1,6 +1,7 @@
 package cn.elytra.mod.nomi_horizons.mixins.gt;
 
 import cn.elytra.mod.nomi_horizons.NomiHorizons;
+import cn.elytra.mod.nomi_horizons.NomiHorizonsAPI;
 import gregtech.api.pattern.TraceabilityPredicate;
 import gregtech.common.metatileentities.multi.electric.MetaTileEntityCleanroom;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +14,8 @@ public class ElevatorInCleanroom_Mixin {
 
     @Unique
     private static TraceabilityPredicate nh$elevatorPredicate() {
-        return new TraceabilityPredicate(blockWorldState -> NomiHorizons.API.getElevatorPredicate().test(blockWorldState.getBlockState())).setMaxGlobalLimited(1);
+        NomiHorizonsAPI api = NomiHorizons.API;
+        return api.getElevatorPredicate().setMaxGlobalLimited(api.getMaxElevatorCount());
     }
 
     @Redirect(method = "createStructurePattern", at = @At(value = "INVOKE", target = "Lgregtech/api/pattern/TraceabilityPredicate;or(Lgregtech/api/pattern/TraceabilityPredicate;)Lgregtech/api/pattern/TraceabilityPredicate;", ordinal = 2))

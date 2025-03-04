@@ -62,3 +62,9 @@
 
 - Added Elevator-kind blocks in GregTech Cleanroom structures.
   Currently supported elevators are Elevators from Elevator Mod and Travel Anchor from Ender IO.
+
+## [1.5.1] - 2025-3-4
+
+### Modify
+
+- Added Elevator block previews in Cleanroom structures.
