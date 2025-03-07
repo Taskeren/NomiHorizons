@@ -1,3 +1,8 @@
 nomi_horizons.nomi_horizons=Nomi Horizons
 
 nomi_horizons.text.presented_by=§b由 %s §b呈现
+
+nomi_horizons.config.pardon_cleanroom=赦免超净间
+nomi_horizons.config.pardon_sterile_cleanroom=赦免无菌超净间
+
+nomi_horizons.gregtech.multiblock_info_cleanroom_pardon=超净间赦免:

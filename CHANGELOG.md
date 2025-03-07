@@ -68,3 +68,12 @@
 ### Modify
 
 - Added Elevator block previews in Cleanroom structures.
+
+## [1.6.0] - 2025-3-7
+
+### Added
+
+- Added Cleanroom Pardon, which allows running recipes that require (Sterile) Cleanroom in Multiblocks without said
+  required cleanroom environment.
+  You can configure which ones are pardoned in in-game config without restarting the game.
+  Mixin Config: `useCleanroomPardon`.

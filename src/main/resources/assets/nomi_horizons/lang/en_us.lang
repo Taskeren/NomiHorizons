@@ -1,3 +1,8 @@
 nomi_horizons.nomi_horizons=Nomi Horizons
 
 nomi_horizons.text.presented_by=§bPresented by %s
+
+nomi_horizons.config.pardon_cleanroom=Pardon Cleanroom
+nomi_horizons.config.pardon_sterile_cleanroom=Pardon Sterile Cleanroom
+
+nomi_horizons.gregtech.multiblock_info_cleanroom_pardon=Cleanroom Pardon:
