@@ -77,3 +77,10 @@
   required cleanroom environment.
   You can configure which ones are pardoned in in-game config without restarting the game.
   Mixin Config: `useCleanroomPardon`.
+
+## [1.7.0] - 2025-3-10
+
+### Added
+
+- Added Creative Spray Can, which you can select the wanted color by right-clicking.
+  Currently, no crafting recipe is provided, and it needs suggestion.

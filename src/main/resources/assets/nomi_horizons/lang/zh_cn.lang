@@ -6,3 +6,26 @@ nomi_horizons.config.pardon_cleanroom=赦免超净间
 nomi_horizons.config.pardon_sterile_cleanroom=赦免无菌超净间
 
 nomi_horizons.gregtech.multiblock_info_cleanroom_pardon=超净间赦免:
+
+nomi_horizons.spray.creative.gui=切换喷漆罐颜色
+nomi_horizons.spray.creative.name=创造喷漆罐
+nomi_horizons.spray.creative.name_template=创造%s
+nomi_horizons.spray.creative.tooltip=§b你可以§9右键§b设置喷漆罐的颜色。
+
+nomi_horizons.color.solvent=溶剂
+nomi_horizons.color.white=白色
+nomi_horizons.color.orange=橙色
+nomi_horizons.color.magenta=品红色
+nomi_horizons.color.lightBlue=淡蓝色
+nomi_horizons.color.yellow=黄色
+nomi_horizons.color.lime=黄绿色
+nomi_horizons.color.pink=粉红色
+nomi_horizons.color.gray=灰色
+nomi_horizons.color.silver=淡灰色
+nomi_horizons.color.cyan=青色
+nomi_horizons.color.purple=紫色
+nomi_horizons.color.blue=蓝色
+nomi_horizons.color.brown=棕色
+nomi_horizons.color.green=绿色
+nomi_horizons.color.red=红色
+nomi_horizons.color.black=黑色

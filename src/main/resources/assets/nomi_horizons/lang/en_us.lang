@@ -6,3 +6,26 @@ nomi_horizons.config.pardon_cleanroom=Pardon Cleanroom
 nomi_horizons.config.pardon_sterile_cleanroom=Pardon Sterile Cleanroom
 
 nomi_horizons.gregtech.multiblock_info_cleanroom_pardon=Cleanroom Pardon:
+
+nomi_horizons.spray.creative.gui=Change Color of Spray Can
+nomi_horizons.spray.creative.name=Creative Spray
+nomi_horizons.spray.creative.name_template=Creative %s
+nomi_horizons.spray.creative.tooltip=§bYou can change the Color of Spray Can by §9right-clicking§b.
+
+nomi_horizons.color.solvent=Solvent
+nomi_horizons.color.white=White
+nomi_horizons.color.orange=Orange
+nomi_horizons.color.magenta=Magenta
+nomi_horizons.color.lightBlue=Light Blue
+nomi_horizons.color.yellow=Yellow
+nomi_horizons.color.lime=Lime
+nomi_horizons.color.pink=Pink
+nomi_horizons.color.gray=Gray
+nomi_horizons.color.silver=Light Gray
+nomi_horizons.color.cyan=Cyan
+nomi_horizons.color.purple=Purple
+nomi_horizons.color.blue=Blue
+nomi_horizons.color.brown=Brown
+nomi_horizons.color.green=Green
+nomi_horizons.color.red=Red
+nomi_horizons.color.black=Black

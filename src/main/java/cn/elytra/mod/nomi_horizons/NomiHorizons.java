@@ -1,5 +1,6 @@
 package cn.elytra.mod.nomi_horizons;
 
+import cn.elytra.mod.nomi_horizons.xmod.gt.NomiHorizonsMetaItem;
 import crazypants.enderio.machines.init.MachineObject;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -23,6 +24,8 @@ public class NomiHorizons {
 
     public static final Logger LOG = LogManager.getLogger(Tags.MOD_NAME);
 
+    public static final String MOD_ID = Tags.MOD_ID;
+
     public static final NomiHorizonsAPI API = new NomiHorizonsAPI();
 
     @SuppressWarnings("SpellCheckingInspection")
@@ -33,6 +36,7 @@ public class NomiHorizons {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LOG.info("Nomi Horizons Installed");
+        new NomiHorizonsMetaItem();
     }
 
     @EventHandler
