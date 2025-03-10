@@ -93,4 +93,12 @@
   It will now add new options to the JSON file when the version is updated.
   And if the file is corrupted, it will generate a new file with all values by default.
 
-  
+## [1.8.0] - 2025-3-10 [EXPERIMENTAL]
+
+### Added
+
+- Added Advanced Recipe Logic, where the machines won't be stuck at the first recipe when there is something blocking it,
+  like there is not enough space to dump outputs.
+  Mixin Config: `useBetterRecipe`. Can be disabled in in-game configuration, **and is DISABLED by default.**
+- (Technical) As a part of new things above, `RecipeMap`s are now implementing `INewHorizonsRecipeMap`, which provides
+  more methods for querying recipes.
