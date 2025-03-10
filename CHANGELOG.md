@@ -84,3 +84,13 @@
 
 - Added Creative Spray Can, which you can select the wanted color by right-clicking.
   Currently, no crafting recipe is provided, and it needs suggestion.
+
+## [1.7.1] - 2025-3-10
+
+### Modify
+
+- Added Mixin Configuration Auto-Upgrade.
+  It will now add new options to the JSON file when the version is updated.
+  And if the file is corrupted, it will generate a new file with all values by default.
+
+  
