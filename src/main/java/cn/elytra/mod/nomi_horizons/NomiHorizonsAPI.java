@@ -77,4 +77,9 @@ public class NomiHorizonsAPI {
         return NomiHorizonsConfig.pardonSterileCleanroom;
     }
 
+    @ApiStatus.Internal
+    public boolean useAdvancedRecipeLogic() {
+        return NomiHorizonsConfig.useAdvancedRecipeLogic;
+    }
+
 }

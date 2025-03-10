@@ -10,7 +10,6 @@ import zone.rong.mixinbooter.ILateMixinLoader;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.StandardOpenOption;
@@ -33,6 +32,7 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
         public boolean setCellCapacityTo144 = true;
         public boolean useNonPhantomFluidTankWidgets = true;
         public boolean useCleanroomPardon = true;
+        public boolean useBetterRecipe = true; // apply, but disabled in config by default
     }
 
     private static Config config;
@@ -104,6 +104,12 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
 
         if(config.useCleanroomPardon) {
             mixinConfigs.add("mixins.nomi_horizons.cleanroom_pardon.json");
+        }
+
+        if(config.useBetterRecipe) {
+            mixinConfigs.add("mixins.nomi_horizons.better_recipe.json");
+            NomiHorizons.LOG.warn("Better Recipe Mixins are experimental, and are applied!");
+            NomiHorizons.LOG.warn("Make sure to backup your worlds before it ruining your day.");
         }
 
         return mixinConfigs;

@@ -14,4 +14,8 @@ public class NomiHorizonsConfig {
     @Config.Comment("True to bypass the Sterile Cleanroom check for multiblocks.")
     public static boolean pardonSterileCleanroom = false;
 
+    @Config.LangKey("nomi_horizons.config.use_advanced_recipe_logic")
+    @Config.Comment("[EXPERIMENTAL] True to enable New Horizons' Advanced Recipe Logic.")
+    public static boolean useAdvancedRecipeLogic = false;
+
 }

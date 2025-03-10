@@ -1,0 +1,12 @@
+{
+  "package": "cn.elytra.mod.nomi_horizons.mixins",
+  "required": true,
+  "refmap": "${mixin_refmap}",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8.5",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "gt.better_recipe.BetterRecipeLogic_Mixin",
+    "gt.better_recipe.BetterRecipeMap_Mixin"
+  ]
+}
