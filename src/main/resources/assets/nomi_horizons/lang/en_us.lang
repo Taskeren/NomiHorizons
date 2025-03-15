@@ -29,3 +29,9 @@ nomi_horizons.color.brown=Brown
 nomi_horizons.color.green=Green
 nomi_horizons.color.red=Red
 nomi_horizons.color.black=Black
+
+command.nomi_horizons.usage=/nomi-horizons help
+command.nomi_horizons.help.0=/nomi-horizons help - List this help
+command.nomi_horizons.help.1=/nomi-horizons reload - Reload the configuration
+command.nomi_horizons.reload.success=§aReloaded!
+command.nomi_horizons.reload.error=§cFailed: %s

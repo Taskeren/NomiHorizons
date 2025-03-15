@@ -1,14 +1,10 @@
 package cn.elytra.mod.nomi_horizons;
 
-import cn.elytra.mod.nomi_horizons.config.NomiHorizonsConfig;
-import codechicken.lib.util.ArrayUtils;
+import cn.elytra.mod.nomi_horizons.config.NomiHorizonsConfigV2;
 import com.google.common.collect.Lists;
-import gregtech.api.metatileentity.multiblock.CleanroomType;
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
 import gregtech.api.pattern.TraceabilityPredicate;
 import net.minecraft.block.state.IBlockState;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
@@ -69,12 +65,12 @@ public class NomiHorizonsAPI {
 
     @ApiStatus.Internal
     public boolean isCleanroomPardoned() {
-        return NomiHorizonsConfig.pardonCleanroom;
+        return NomiHorizonsConfigV2.get().propPardonCleanroom.getBoolean();
     }
 
     @ApiStatus.Internal
     public boolean isSterileCleanroomPardoned() {
-        return NomiHorizonsConfig.pardonSterileCleanroom;
+        return NomiHorizonsConfigV2.get().propPardonSterileCleanroom.getBoolean();
     }
 
 }
