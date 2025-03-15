@@ -1,24 +1,26 @@
 package cn.elytra.mod.nomi_horizons;
 
+import cn.elytra.mod.nomi_horizons.command.NomiHorizonsCommand;
+import cn.elytra.mod.nomi_horizons.config.NomiHorizonsConfigV2;
 import cn.elytra.mod.nomi_horizons.xmod.gt.NomiHorizonsMetaItem;
 import crazypants.enderio.machines.init.MachineObject;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import xyz.vsngamer.elevator.init.Registry;
 
-@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION, dependencies = NomiHorizons.DEPS)
+@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION, dependencies = NomiHorizons.DEPS, guiFactory = "cn.elytra.mod.nomi_horizons.config.NomiHorizonsConfigGuiFactory")
 @Mod.EventBusSubscriber(modid = Tags.MOD_ID)
 public class NomiHorizons {
 
@@ -37,6 +39,9 @@ public class NomiHorizons {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LOG.info("Nomi Horizons Installed");
+
+        new NomiHorizonsConfigV2(new Configuration(event.getSuggestedConfigurationFile()));
+
         new NomiHorizonsMetaItem();
     }
 
@@ -45,10 +50,19 @@ public class NomiHorizons {
         loadCrossModCompat();
     }
 
+    @EventHandler
+    public void serverStarting(FMLServerStartingEvent event) {
+        event.registerServerCommand(new NomiHorizonsCommand());
+    }
+
     @SubscribeEvent
     public static void onConfigSync(ConfigChangedEvent.OnConfigChangedEvent event) {
         if(event.getModID().equals(Tags.MOD_ID)) {
-            ConfigManager.sync(Tags.MOD_ID, Config.Type.INSTANCE);
+            try {
+                NomiHorizonsConfigV2.save();
+            } catch(Exception e) {
+                NomiHorizons.LOG.error("Failed to save configurations", e);
+            }
         }
     }
 
