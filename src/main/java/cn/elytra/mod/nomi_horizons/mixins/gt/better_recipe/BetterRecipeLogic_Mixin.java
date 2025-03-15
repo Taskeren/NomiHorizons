@@ -56,6 +56,7 @@ public abstract class BetterRecipeLogic_Mixin {
         }
     }
 
+    @SuppressWarnings("UnusedAssignment")
     @Unique
     protected void nh$trySearchNewRecipeAdvanced() {
         long maxVoltage = getMaxVoltage();
@@ -88,6 +89,21 @@ public abstract class BetterRecipeLogic_Mixin {
             var recipe = iter.next();
             if(checkRecipe(recipe) && prepareRecipe(recipe)) {
                 this.previousRecipe = recipe;
+                return;
+            } else {
+                mIsOutputsFull = this.isOutputsFull;
+                mInvalidInputsForRecipes = this.invalidInputsForRecipes;
+                this.isOutputsFull = false;
+                this.invalidInputsForRecipes = false;
+            }
+        }
+
+        // try fallback to #findRecipe, in case of recipe maps that provides additional recipes
+        // in #findRecipe.
+        var defaultRecipe = recipeMap.findRecipe(maxVoltage, importInventory, importFluids);
+        if(defaultRecipe != null) {
+            if(checkRecipe(defaultRecipe) && prepareRecipe(defaultRecipe)) {
+                this.previousRecipe = defaultRecipe;
                 return;
             } else {
                 mIsOutputsFull = this.isOutputsFull;
