@@ -102,3 +102,17 @@
   Mixin Config: `useBetterRecipe`. Can be disabled in in-game configuration, **and is DISABLED by default.**
 - (Technical) As a part of new things above, `RecipeMap`s are now implementing `INewHorizonsRecipeMap`, which provides
   more methods for querying recipes.
+
+## [1.8.1] - 2025-3-16 [EXPERIMENTAL]
+
+### Added
+
+- Refactored Configuration system, allowing players to reload the configurations with command `/nomi-horizons reload`.
+  This is pretty useful when you are running a server and adjusting configurations, where you don't have to restart the server
+  every time when you have something changed.
+  *This feature MAYBE also added to 1.7.X branch, please make sure to check it in CHANGELOG.*
+
+### Fixed
+
+- Fixed a bug where machines with dynamically searched recipes (like MultiSmelter, which will read the Furnace recipes runtime),
+  are not working correctly, when the Advanced Recipe Logic is on.
