@@ -34,6 +34,7 @@ public class NomiHorizonsConfigV2 {
 
     public Property propPardonCleanroom;
     public Property propPardonSterileCleanroom;
+    public Property propUseAdvancedRecipeLogic;
 
     public NomiHorizonsConfigV2(Configuration config) {
         instance = this;
@@ -50,6 +51,10 @@ public class NomiHorizonsConfigV2 {
         propPardonSterileCleanroom = this.config.get(Configuration.CATEGORY_GENERAL, "pardonSterileCleanroom", true);
         propPardonSterileCleanroom.setLanguageKey("nomi_horizons.config.pardon_sterile_cleanroom");
         propPardonSterileCleanroom.setComment("True to bypass the Sterile Cleanroom check for multiblocks.");
+
+        propUseAdvancedRecipeLogic = this.config.get(Configuration.CATEGORY_GENERAL, "useAdvancedRecipeLogic", true);
+        propUseAdvancedRecipeLogic.setLanguageKey("nomi_horizons.config.use_advanced_recipe_logic");
+        propUseAdvancedRecipeLogic.setComment("[EXPERIMENTAL] True to enable New Horizons' Advanced Recipe Logic.");
     }
 
     public List<Property> getAllProperties() {

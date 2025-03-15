@@ -75,7 +75,7 @@ public class NomiHorizonsAPI {
 
     @ApiStatus.Internal
     public boolean useAdvancedRecipeLogic() {
-        return NomiHorizonsConfig.useAdvancedRecipeLogic;
+        return NomiHorizonsConfigV2.get().propUseAdvancedRecipeLogic.getBoolean();
     }
 
 }
