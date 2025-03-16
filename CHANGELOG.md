@@ -85,7 +85,7 @@
 - Added Creative Spray Can, which you can select the wanted color by right-clicking.
   Currently, no crafting recipe is provided, and it needs suggestion.
 
-## [1.7.1] - 2025-3-10
+## [1.7.1] - 2025-3-16
 
 ### Modify
 
@@ -93,4 +93,8 @@
   It will now add new options to the JSON file when the version is updated.
   And if the file is corrupted, it will generate a new file with all values by default.
 
-  
+### Added
+
+- Added One Stack Only, which forces each type of ItemStack can only consume 1 slot in GregTech Machines (or other things uses GTItemStackHandler.)
+  This will prevent 1 type of item takes up more than 1 slot in a machine, in a passive product line.
+  Mixin Config: `useOneStackOnly`.
