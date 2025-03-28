@@ -33,6 +33,10 @@ repositories {
         name 'Blamejared'
         url 'https://maven.blamejared.com'
     }
+    maven {
+        name 'Jitpack'
+        url 'https://jitpack.io'
+    }
     mavenLocal() // Must be last for caching to work
 }
 
@@ -95,4 +99,7 @@ dependencies {
 
     // EnderIO - 5.3.72
     compileOnly(rfg.deobf("curse.maven:enderio-64578:4674244"))
+
+    // ZBGT
+    implementation("com.github.Taskeren:ZBGT:jitpack-SNAPSHOT:dev")
 }
