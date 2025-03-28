@@ -9,6 +9,7 @@ import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -39,14 +40,12 @@ public abstract class BetterRecipeLogic_Mixin {
     public abstract boolean prepareRecipe(Recipe recipe);
 
     @Shadow
-    @Final
-    private RecipeMap<?> recipeMap;
-
-    @Shadow
     protected boolean isOutputsFull;
 
     @Shadow
     protected boolean invalidInputsForRecipes;
+
+    @Shadow @Nullable public abstract RecipeMap<?> getRecipeMap();
 
     @Inject(method = "trySearchNewRecipe", at = @At("HEAD"), cancellable = true)
     private void nh$hookTrySearchNewRecipe(CallbackInfo ci) {
@@ -74,6 +73,7 @@ public abstract class BetterRecipeLogic_Mixin {
             }
         }
 
+        var recipeMap = getRecipeMap();
         if(!(recipeMap instanceof INewHorizonsRecipeMap nRecipeMap)) {
             throw new RuntimeException("RecipeMaps are expected to be injected with INewHorizonsRecipeMap, but they are not!");
         }
