@@ -129,3 +129,15 @@
 
 - Fixed a bug where machines with dynamically searched recipes (like MultiSmelter, which will read the Furnace recipes runtime),
   are not working correctly, when the Advanced Recipe Logic is on.
+
+## [1.8.2] - 2025-3-28
+
+### Fixed
+
+- Fixed a bug where machines with multiple RecipeMaps are unable to switch recipe maps to others in internal.
+
+## [1.8.3] - 2025-3-29
+
+### Release Branch Merging
+
+See: [1.7.2](#172---2025-3-29).
