@@ -99,6 +99,13 @@
   This will prevent 1 type of item takes up more than 1 slot in a machine, in a passive product line.
   Mixin Config: `useOneStackOnly`.
 
+## [1.7.2] - 2025-3-29
+
+### Re-Implementation
+
+- Removed the One Stack Only Mixins, and moved its functionality to One Stack Filter item, as a cover to machines.
+  Also fixed a bug where stacks with only different amount are considered as different stacks.
+
 ## [1.8.0] - 2025-3-10 [EXPERIMENTAL]
 
 ### Added
