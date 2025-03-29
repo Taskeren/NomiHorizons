@@ -32,7 +32,6 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
         public boolean setCellCapacityTo144 = true;
         public boolean useNonPhantomFluidTankWidgets = true;
         public boolean useCleanroomPardon = true;
-        public boolean useOneStackOnly = true;
     }
 
     private static Config config;
@@ -104,10 +103,6 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
 
         if(config.useCleanroomPardon) {
             mixinConfigs.add("mixins.nomi_horizons.cleanroom_pardon.json");
-        }
-
-        if(config.useOneStackOnly) {
-            mixinConfigs.add("mixins.nomi_horizons.one_stack_only.json");
         }
 
         return mixinConfigs;
