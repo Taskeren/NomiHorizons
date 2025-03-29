@@ -36,3 +36,5 @@ command.nomi_horizons.help.0=/nomi-horizons help - 列出帮助
 command.nomi_horizons.help.1=/nomi-horizons reload - 重载配置
 command.nomi_horizons.reload.success=§a成功重载!
 command.nomi_horizons.reload.error=§c失败: %s
+
+metaitem.one_stack_filter.name=一组过滤卡

@@ -33,7 +33,6 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
         public boolean useNonPhantomFluidTankWidgets = true;
         public boolean useCleanroomPardon = true;
         public boolean useBetterRecipe = true;
-        public boolean useOneStackOnly = true;
     }
 
     private static Config config;
@@ -109,10 +108,6 @@ public class NomiHorizonsMixinLoader implements ILateMixinLoader {
 
         if(config.useBetterRecipe) {
             mixinConfigs.add("mixins.nomi_horizons.better_recipe.json");
-        }
-
-        if(config.useOneStackOnly) {
-            mixinConfigs.add("mixins.nomi_horizons.one_stack_only.json");
         }
 
         return mixinConfigs;

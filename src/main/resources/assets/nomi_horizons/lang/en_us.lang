@@ -36,3 +36,5 @@ command.nomi_horizons.help.0=/nomi-horizons help - List this help
 command.nomi_horizons.help.1=/nomi-horizons reload - Reload the configuration
 command.nomi_horizons.reload.success=§aReloaded!
 command.nomi_horizons.reload.error=§cFailed: %s
+
+metaitem.one_stack_filter.name=One Stack Filter
