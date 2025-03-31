@@ -282,12 +282,19 @@ test {
     }
 }
 
+changelog {
+    versionPrefix = ""
+    repositoryUrl = "https://github.com/Taskeren/NomiHorizons"
+}
+
 String parserChangelog() {
     if (!file('CHANGELOG.md').exists()) {
         throw new GradleException('publish_with_changelog is true, but CHANGELOG.md does not exist in the workspace!')
     }
     String parsedChangelog = changelog.renderItem(
-            changelog.get(identifiedVersion).withHeader(false).withEmptySections(false),
+            changelog.get(project.version)
+                    .withHeader(true)
+                    .withEmptySections(false),
             Changelog.OutputType.MARKDOWN)
     if (parsedChangelog.isEmpty()) {
         throw new GradleException('publish_with_changelog is true, but the changelog for the latest version is empty!')

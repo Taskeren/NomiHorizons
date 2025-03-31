@@ -107,7 +107,7 @@ if (propertyBool('publish_to_modrinth')) {
                 }
             }
         }
-        if (!propertyBool('publish_with_changelog')) {
+        if (propertyBool('publish_with_changelog')) {
             changelog = parserChangelog()
         }
         if (propertyBool('modrinth_sync_readme')) {
