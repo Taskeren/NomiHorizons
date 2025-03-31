@@ -77,11 +77,26 @@ if (propertyBool('publish_to_modrinth')) {
     assertProperty('modrinth_project_id')
     assertProperty('release_type')
     setDefaultProperty('modrinth_debug', false, false)
+
+    String version = project.version
+    String releaseType
+    if(version.contains("dirty")) {
+        if(System.getenv("ALLOW_DIRTY") == "true") {
+            releaseType = "alpha"
+        } else {
+            throw new GradleException("Releasing dirty version requires ALLOW_DIRTY flag to be true.")
+        }
+    } else if(version.contains("snapshot") || version.contains("pre")) {
+        releaseType = "beta"
+    } else {
+        releaseType = "release"
+    }
+
     modrinth {
         token = System.getenv('MODRINTH_TOKEN') ? "" : System.getenv('MODRINTH_TOKEN')
         projectId = propertyString('modrinth_project_id')
-        versionNumber = propertyString('mod_version')
-        versionType = propertyString('release_type')
+        versionNumber = version
+        versionType = releaseType
         uploadFile = tasks.reobfJar
         gameVersions = ['1.12.2']
         loaders = ['forge']
