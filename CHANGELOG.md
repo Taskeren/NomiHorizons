@@ -105,3 +105,9 @@
 
 - Removed the One Stack Only Mixins, and moved its functionality to One Stack Filter item, as a cover to machines.
   Also fixed a bug where stacks with only different amount are considered as different stacks.
+
+## [1.7.2.999] - 2025-3-31
+
+### Nothing
+
+- This is a version used to test Modrinth publishing automation, and includes no updates.
