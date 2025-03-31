@@ -73,8 +73,6 @@ if (propertyBool('publish_to_curseforge')) {
 
 // Documentation here: https://github.com/modrinth/minotaur
 if (propertyBool('publish_to_modrinth')) {
-    if(System.getenv("ALLOW_DIRTY") != "true") return
-
     apply plugin: 'com.modrinth.minotaur'
     assertProperty('modrinth_project_id')
     assertProperty('release_type')
@@ -117,4 +115,12 @@ if (propertyBool('publish_to_modrinth')) {
             tasks.modrinth.dependsOn(tasks.modrinthSyncBody)
         }
     }
+}
+
+if(System.getenv("MODRINTH_TOKEN") != null) {
+    tasks.publish {
+        dependsOn("modrinth")
+    }
+} else {
+    println("Skipping Modrinth publishing, because the token is not set.")
 }
