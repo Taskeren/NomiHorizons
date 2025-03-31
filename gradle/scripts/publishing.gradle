@@ -73,6 +73,8 @@ if (propertyBool('publish_to_curseforge')) {
 
 // Documentation here: https://github.com/modrinth/minotaur
 if (propertyBool('publish_to_modrinth')) {
+    if(System.getenv("ALLOW_DIRTY") != "true") return
+
     apply plugin: 'com.modrinth.minotaur'
     assertProperty('modrinth_project_id')
     assertProperty('release_type')
@@ -81,11 +83,7 @@ if (propertyBool('publish_to_modrinth')) {
     String version = project.version
     String releaseType
     if(version.contains("dirty")) {
-        if(System.getenv("ALLOW_DIRTY") == "true") {
-            releaseType = "alpha"
-        } else {
-            throw new GradleException("Releasing dirty version requires ALLOW_DIRTY flag to be true.")
-        }
+        releaseType = "alpha"
     } else if(version.contains("snapshot") || version.contains("pre")) {
         releaseType = "beta"
     } else {
